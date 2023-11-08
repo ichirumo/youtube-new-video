@@ -1,5 +1,4 @@
 import sys, discord, function
-from discord.ext import commands
 from config import discord_token_path, discord_key_path, discord_channel_ID
 
 token = function.decrypt_token(discord_token_path, discord_key_path)
@@ -11,7 +10,7 @@ intents.presences = False
 contents = sys.argv[1].replace("'", '')
 url = sys.argv[2].replace("'", '')
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = discord.Client(intents=intents)
 
 @bot.event
 async def on_ready():

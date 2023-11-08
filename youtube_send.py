@@ -1,5 +1,4 @@
 import sys, discord, function, mysql.connector
-from discord.ext import commands
 from config import db_host, db_database, db_user, db_passwd, discord_token_path, discord_key_path, discord_channel_ID
 
 token = function.decrypt_token(discord_token_path, discord_key_path)
@@ -13,7 +12,7 @@ url = sys.argv[2]
 title = title.replace("'", '')
 url = url.replace("'", '')
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = discord.Client(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
